@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    border: 2px solid #ccc;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+}
+
+.logo img {
+    width: 80px;
+}
+
+nav a, .auth a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: blue;
+}
+
+/* TOP BAR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+.top-bar input {
+    padding: 5px;
+}
+
+/* LAYOUT */
+.container {
+    display: flex;
+}
+
+/* SIDEBAR */
+aside {
+    width: 200px;
+    border-right: 2px solid #ccc;
+    padding: 10px;
+}
+
+aside a {
+    display: block;
+    margin: 10px 0;
+    color: blue;
+    text-decoration: none;
+}
+
+/* MAIN */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.main-image {
+    width: 100%;
+    margin: 20px 0;
+    width: 500px;
+    left: 570px;
+    position: relative;
+}
+
+/* CUSTOMERS */
+.customers {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.customers div {
+    text-align: center;
+}
+
+.customers img {
+    width: 60px;
+}
+
+/* SECTIONS */
+.section {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.section img {
+    width: 300px;
+    margin-left: 20px;
+}
+
+.section.reverse {
+    flex-direction: row-reverse;
+}
+
+.section.reverse img {
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+/* FOOTER */
+footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #ccc;
+    padding: 20px;
+}
+
+footer a {
+    display: block;
+    color: blue;
+    text-decoration: none;
+    margin: 5px 0;
+}
+.center {
+  text-align: center;
+}

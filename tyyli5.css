@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+}
+
+/* BOX STYLE */
+.box {
+    border: 2px solid #000000;
+    background: #f5f5f5;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* PAGE WIDTH */
+.page {
+    max-width: 400px;
+    margin: auto;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.menu,
+.search {
+    font-size: 20px;
+}
+
+/* NAV */
+.nav {
+    text-align: left;
+}
+
+/* ARTICLES */
+.article h3 {
+    margin-top: 0;
+}
+
+.image {
+    height: 120px;
+    border: 2px solid #999;
+    margin: 10px 0;
+    position: relative;
+    display: block;
+}
+
+
+.image::before {
+    transform: rotate(45deg);
+}
+
+.image::after {
+    transform: rotate(-45deg);
+}
+
+/* FOOTER */
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.links a {
+    display: block;
+    color: blue;
+    text-decoration: none;
+}
+/* LOGO IMAGE */
+.logo img {
+    height: 40px;
+}
+
+/* IMAGE CONTAINER */
+.image {
+    height: 120px;
+    border: 2px solid #999;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+/* IMAGE ITSELF */
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========================= */
+/* DESKTOP RESPONSIVE */
+/* ========================= */
+@media (min-width: 768px) {
+
+    .page {
+        max-width: 1000px;
+    }
+
+    .article {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .article:nth-child(3) {
+        flex-direction: row-reverse;
+    }
+
+    .image {
+        width: 300px;
+        height: 180px;
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
