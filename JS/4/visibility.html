@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8" />
+<title>tehtävä 4</title>
+<script type="text/javascript">
+function nayta(id) {
+    document.getElementById(id).style.visibility="visible";
+    document.getElementById(id).innerHTML="<h2>AKTIIVINEN LAATIKKO</h2>";
+}
+function sulje(id) {
+    document.getElementById(id).style.visibility="hidden";
+}
+</script>
+<style type="text/css">
+#laatikko1 { visibility: hidden; float: left; background-color: #00baff; width: 200px; height: 200px; }
+#laatikko2 { visibility: hidden; float: left; background-color: #82A616; width: 200px; height: 200px; }
+#laatikko3 { visibility: hidden; float: left; background-color: #ffde00; width: 200px; height: 200px; }
+</style>
+</head>
+
+<body>
+<h1>DOM + JavaScript: visibility</h1>
+Laatikko 1: <a href="#" onClick="sulje('laatikko1');">Sulje</a> | <a href="#" onClick="nayta('laatikko1');">Näytä</a><br/>
+Laatikko 2: <a href="#" onClick="sulje('laatikko2');">Sulje</a> | <a href="#" onClick="nayta('laatikko2');">Näytä</a><br/>
+Laatikko 3: <a href="#" onClick="sulje('laatikko3');">Sulje</a> | <a href="#" onClick="nayta('laatikko3');">Näytä</a><br/>
+<div id="laatikko1"></div>
+<div id="laatikko2"></div>
+<div id="laatikko3"></div>
+</body>
+</html>

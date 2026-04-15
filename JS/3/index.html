@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>tehtävä 3</title>
+
+<script>
+
+// LASKE LUKUMÄÄRÄ
+function laskeLukumaara() {
+    var lapset = Number(document.getElementById("lapset").value);
+    var aikuiset = Number(document.getElementById("aikuiset").value);
+
+    var yhteensa = lapset + aikuiset;
+
+    document.getElementById("lukumaara").value = yhteensa;
+}
+
+// LASKE HINTA
+function laskeHinta() {
+    var lapset = Number(document.getElementById("lapset").value);
+    var aikuiset = Number(document.getElementById("aikuiset").value);
+    var tunnit = Number(document.getElementById("tunnit").value);
+
+    var hinta = (lapset * 4 + aikuiset * 7) * tunnit;
+
+    document.getElementById("hinta").value = hinta + " €";
+}
+
+</script>
+
+</head>
+<body>
+
+<h3>Ilmoita lasten ja aikuisten lukumäärä sekä peliaika</h3>
+
+<label>Lapset (max 6)</label><br>
+<input type="number" id="lapset"><br><br>
+
+<label>Aikuiset (max 6)</label><br>
+<input type="number" id="aikuiset"><br><br>
+
+<label>Peliaika tunteina</label><br>
+<input type="number" id="tunnit"><br><br>
+
+<button onclick="laskeLukumaara()">Laske lukumäärä</button><br><br>
+
+<label>Laskettava lukumäärä</label><br>
+<input type="text" id="lukumaara"><br><br>
+
+<button onclick="laskeHinta()">Laske hinta</button><br><br>
+
+<label>Hinta</label><br>
+<input type="text" id="hinta">
+
+</body>
+</html>

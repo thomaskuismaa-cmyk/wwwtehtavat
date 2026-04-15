@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>tehtävä 2</title>
+
+<script>
+/* FUNKTIOT TÄNNE */
+
+// HIIRI PÄÄLLE
+function hiiriPaalle(btn) {
+    btn.style.backgroundColor = "red";
+    btn.style.color = "blue";
+}
+
+// HIIRI POIS
+function hiiriPois(btn) {
+    btn.style.backgroundColor = "yellow";
+    btn.style.color = "black";
+}
+
+// JAKO
+function jako() {
+    document.getElementById("viesti").value += "Valittu jakolasku\n";
+}
+
+// KERTO
+function kerto() {
+    document.getElementById("viesti").value += "Valittu kertolasku\n";
+}
+
+</script>
+
+</head>
+<body>
+
+<input type="button" id="plus" value="PLUS"><br><br>
+<input type="button" id="miinus" value="MIINUS"><br><br>
+<input type="button" id="kerto" value="KERTO"><br><br>
+<input type="button" id="jako" value="JAKO"><br><br>
+
+<textarea id="viesti" rows="10" cols="40"></textarea>
+
+<script>
+
+// PLUS nappi
+var plus = document.getElementById("plus");
+plus.onmouseover = function() { hiiriPaalle(this); };
+plus.onmouseout = function() { hiiriPois(this); };
+
+// MIINUS nappi
+var miinus = document.getElementById("miinus");
+miinus.onmouseover = function() { hiiriPaalle(this); };
+miinus.onmouseout = function() { hiiriPois(this); };
+
+// JAKO nappi
+var jakoBtn = document.getElementById("jako");
+jakoBtn.onclick = jako;
+
+// KERTO nappi
+var kertoBtn = document.getElementById("kerto");
+kertoBtn.onclick = kerto;
+
+</script>
+
+</body>
+</html>
