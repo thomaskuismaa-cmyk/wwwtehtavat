@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Piilotus / Näkyviin</h1>
+
+<p id="kappale1">
+    Tämän kappaleen id on 'kappale1' <br>
+    Kappale piiloon:<br>
+    <code>document.getElementById('kappale1').style.visibility='hidden'</code>
+    <br>
+    Kappale näkyviin:<br>
+    <code>document.getElementById('kappale1').style.visibility='visible'</code>
+</p>
+
+<h1>Taustaväri</h1>
+
+<p id="kappale2">
+    Tämän kappaleen id on 'kappale2' <br>
+    Taustavärin asetus:<br>
+    <code>document.getElementById('kappale2').style.backgroundColor='väri'</code>
+</p>
+
+<button onclick="kappale1_piiloon()">Kappale 1 piiloon</button>
+<button onclick="kappale1_nakyviin()">Kappale 1 näkyviin</button>
+<br><br>
+
+<button onclick="kappale2_piiloon()">Kappale 2 piiloon</button>
+<button onclick="kappale2_nakyviin()">Kappale 2 näkyviin</button>
+<br><br>
+
+<button onclick="kappale1_harmaaksi()">Kappale 1 harmaaksi</button>
+<button onclick="kappale2_keltaiseksi()">Kappale 2 keltaiseksi</button>
+
+<script>
+
+// KAPPALE 1
+function kappale1_piiloon() {
+    document.getElementById("kappale1").style.visibility = "hidden";
+}
+
+function kappale1_nakyviin() {
+    document.getElementById("kappale1").style.visibility = "visible";
+}
+
+// KAPPALE 2
+function kappale2_piiloon() {
+    document.getElementById("kappale2").style.visibility = "hidden";
+}
+
+function kappale2_nakyviin() {
+    document.getElementById("kappale2").style.visibility = "visible";
+}
+
+// VÄRIT
+function kappale1_harmaaksi() {
+    document.getElementById("kappale1").style.backgroundColor = "gray";
+}
+
+function kappale2_keltaiseksi() {
+    document.getElementById("kappale2").style.backgroundColor = "yellow";
+}
+
+</script>
+
+</body>
+</html>

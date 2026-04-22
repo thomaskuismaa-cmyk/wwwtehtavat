@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Piilotus / Näkyviin</h1>
+
+<p id="kappale1">
+    Tämän kappaleen id on 'kappale1'<br>
+    Kappale piiloon:<br>
+    <code>document.getElementById(kappaleen id).style.visibility='hidden'</code>
+    <br>
+    Kappale näkyviin:<br>
+    <code>document.getElementById(kappaleen id).style.visibility='visible'</code>
+</p>
+
+<h1>Taustaväri</h1>
+
+<p id="kappale2">
+    Tämän kappaleen id on 'kappale2'<br>
+    Taustavärin asetus:<br>
+    <code>document.getElementById(kappaleen id).style.backgroundColor='väri'</code>
+</p>
+
+<!-- NAPIT -->
+<button onclick="showhide('kappale1', 'hidden')">Kappale 1 piiloon</button>
+<button onclick="showhide('kappale1', 'visible')">Kappale 1 näkyviin</button>
+<br><br>
+
+<button onclick="showhide('kappale2', 'hidden')">Kappale 2 piiloon</button>
+<button onclick="showhide('kappale2', 'visible')">Kappale 2 näkyviin</button>
+<br><br>
+
+<button onclick="setbgcolor('kappale1', 'gray')">Kappale 1 harmaaksi</button>
+<button onclick="setbgcolor('kappale2', 'yellow')">Kappale 2 keltaiseksi</button>
+
+<script>
+
+// FUNKTIO 1: piilota / näytä
+function showhide(id, tila) {
+    document.getElementById(id).style.visibility = tila;
+}
+
+// FUNKTIO 2: vaihda väri
+function setbgcolor(id, vari) {
+    document.getElementById(id).style.backgroundColor = vari;
+}
+
+</script>
+
+</body>
+</html>

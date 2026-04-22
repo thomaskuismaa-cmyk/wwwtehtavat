@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 7</title>
+</head>
+<body>
+
+<button onclick="luoSivu()">Luo sivu</button>
+
+<script>
+function luoSivu() {
+    // Avataan uusi ikkuna/välilehti
+    let uusiIkkuna = window.open("", "_blank");
+
+    // Kirjoitetaan siihen HTML-sisältö
+    uusiIkkuna.document.write(`
+        <!DOCTYPE html>
+        <html lang="fi">
+        <head>
+            <meta charset="UTF-8">
+            <title>Generoitu nettisivu</title>
+        </head>
+        <body>
+            <h1>Generoitu nettisivu</h1>
+            <h2>Sivua ei ole olemassa HTML-tiedostona</h2>
+            <h3>Pop up -ikkunat on estettävissä selaimessa</h3>
+        </body>
+        </html>
+    `);
+
+    // Suljetaan document.write
+    uusiIkkuna.document.close();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Näytä kortti - Herttakortit 1-13</title>
+    <link rel="stylesheet" href="if3.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>♥ Näytä herttakortti ♥</h1>
+    
+    <label for="lukuInput">Anna kortin silmäluku (1-13):</label><br>
+    <input type="number" id="lukuInput" min="1" max="13" placeholder="esim. 5">
+    <br>
+    <button onclick="naytaKortti()">Esitä kortti</button>
+    
+    <div id="korttiAlue">
+        <!-- Tähän tulee joko kuva tai virheilmoitus -->
+    </div>
+</div>
+
+<script>
+
+    function naytaKortti(syote) {
+        // Haetaan korttialue, johon tulostetaan tulos
+        var korttiAlue = document.getElementById("korttiAlue");
+        
+        // Tyhjennetään edellinen sisältö
+        korttiAlue.innerHTML = "";
+        
+        var annettuLuku;
+        if (syote === undefined) {
+            var inputKentta = document.getElementById("lukuInput");
+            annettuLuku = inputKentta.value;
+        } else {
+            annettuLuku = syote;
+        }
+        
+        // Muutetaan merkkijono numeroksi (esim. "5" -> 5)
+        annettuLuku = Number(annettuLuku);
+        
+        // Tarkistetaan, onko syöte kelvollinen 
+        if (isNaN(annettuLuku)) {
+            naytaVirhe("Syötä kelvollinen numero!");
+            return;
+        }
+        
+        // Tarkistetaan, onko luku välillä 1-13
+        if (annettuLuku < 1) {
+            naytaVirhe(annettuLuku + " on pienempi kuin 1! Anna luku väliltä 1-13.");
+            return;
+        }
+        
+        if (annettuLuku > 13) {
+            naytaVirhe(annettuLuku + " on suurempi kuin 13! Anna luku väliltä 1-13.");
+            return;
+        }
+        
+        // Jos luku on kelvollinen, näytetään vastaava herttakortti
+        naytaKorttiKuva(annettuLuku);
+    }
+    
+    function naytaVirhe(viesti) {
+        var korttiAlue = document.getElementById("korttiAlue");
+        var virheElementti = document.createElement("div");
+        virheElementti.className = "virhe";
+        virheElementti.innerHTML = "❌ " + viesti + " ❌";
+        korttiAlue.appendChild(virheElementti);
+    }
+    
+
+    function naytaKorttiKuva(luku) {
+        var korttiAlue = document.getElementById("korttiAlue");
+        
+        // Muodostetaan kuvan tiedostonimi
+        var kuvanNimi = "hertta" + luku + ".png";
+        
+        // Luodaan img-elementti
+        var img = document.createElement("img");
+        img.src = kuvanNimi;
+        img.alt = "Hertta " + luku;
+        img.title = "Hertta " + luku;
+        
+        // Lisätään kuva sivulle
+        korttiAlue.appendChild(img);
+        
+        // Voi myös lisätä kuvan kuvauksen
+        var kuvaus = document.createElement("p");
+        kuvaus.innerHTML = "♥ Hertta " + luku + " ♥";
+        kuvaus.style.fontWeight = "bold";
+        kuvaus.style.marginTop = "10px";
+        korttiAlue.appendChild(kuvaus);
+    }
+    
+
+</script>
+
+</body>
+</html>
