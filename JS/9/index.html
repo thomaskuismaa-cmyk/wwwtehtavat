@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<script>
+// SUMMA
+function summafunktio()
+{
+    var luku1 = parseInt(document.getElementById("luku1").value);
+    var luku2 = parseInt(document.getElementById("luku2").value);
+
+    var tulos = luku1 + luku2;
+
+    document.getElementById("tulos").value = tulos;
+}
+
+// KERTO
+function tulofunktio()
+{
+    var luku1 = parseInt(document.getElementById("luku1").value);
+    var luku2 = parseInt(document.getElementById("luku2").value);
+
+    var tulos = luku1 * luku2;
+
+    document.getElementById("tulos").value = tulos;
+}
+</script>
+
+</head>
+
+<body>
+
+Luku 1 <input type="text" id="luku1"><br><br>
+Luku 2 <input type="text" id="luku2"><br><br>
+
+<input type="button" value="Laske yhteen" onclick="summafunktio()"><br><br>
+<input type="button" value="Kerro" onclick="tulofunktio()"><br><br>
+
+<input type="text" id="tulos"> Tulos
+
+</body>
+</html>

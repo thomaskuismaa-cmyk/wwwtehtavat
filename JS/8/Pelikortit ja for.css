@@ -1,0 +1,31 @@
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #941910;
+            padding: 20px;
+        }
+        #korttikappale {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            min-height: 200px;
+        }
+        button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #c0392b;
+        }
+        img {
+            width: 80px;
+            margin: 5px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }

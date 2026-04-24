@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>autot1</title>
+
+<script type="text/javascript">
+function tulosta()
+{
+    var autot = new Array(10);
+
+    autot[0] = "1. Kia Ceed";
+    autot[1] = "2. Opel Vectra";
+    autot[2] = "3. Toyota Avensis";
+    autot[3] = "4. VW Jetta";
+    autot[4] = "5. Honda Crosstar";
+    autot[5] = "6. Honda CR-V";
+    autot[6] = "7. Hyundai Accent";
+    autot[7] = "8. Nissan Primera";
+    autot[8] = "9. Volvo V90";
+    autot[9] = "10. Volvo XC90";
+
+    var teksti = "";
+
+    for (var i = 0; i < autot.length; i++)
+    {
+        teksti += autot[i] + "\n";
+    }
+
+    document.getElementById("tulos").value = teksti;
+}
+</script>
+
+</head>
+
+<body>
+
+<input type="button" value="Listaa autot" onClick="tulosta()"><br><br>
+
+<textarea id="tulos" rows="20" cols="50"></textarea>
+
+</body>
+</html>

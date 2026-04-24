@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>autot2</title>
+<script type="text/javascript">
+function tulosta()
+{
+    var autot = new Array(10);
+
+    // Sijoitetaan 10 auton merkit
+    autot[0] = "Kia Ceed";
+    autot[1] = "Opel Vectra";
+    autot[2] = "Toyota Avensis";
+    autot[3] = "VW Jetta";
+    autot[4] = "Honda Crosstar";
+    autot[5] = "Honda CR-V";
+    autot[6] = "Hyundai Accent";
+    autot[7] = "Nissan Primera";
+    autot[8] = "Volvo V90";
+    autot[9] = "Volvo XC90";
+
+    var teksti = "";
+    
+    for (var i in autot)
+    {
+
+        teksti += (Number(i) + 1) + ". " + autot[i] + "\n";
+    }
+    
+    document.getElementById("tulos").value = teksti;
+}
+</script>
+</head>
+<body>
+<input type="button" value="Listaa autot" onClick="tulosta()"><br><br>
+<textarea id="tulos" rows="20" cols="50"></textarea>
+</body>
+</html>

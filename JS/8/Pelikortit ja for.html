@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pelikortit - Hertat</title>
+    <link rel="stylesheet" href="Pelikortit ja for.css">
+
+   <script>
+        function esitahertat()
+        {
+            // Tyhjennetään edelliset kortit
+            document.getElementById("korttikappale").innerHTML = "";
+            
+            // Silmukka kulkee 13 → 1 (suurimmasta pienimpään)
+            for(var k = 13; k >= 1; k--)
+            {
+                var kuvanimi = 'hertta' + k + '.png';
+                var kuvataigi = "<img src='" + kuvanimi + "' alt='Hertta " + k + "'>";
+                document.getElementById("korttikappale").innerHTML += kuvataigi;
+            }
+            
+            document.getElementById("korttikappale").innerHTML += "<br>";
+            console.log("13 herttakorttia esitetty suurimmasta pienimpään!");
+        }
+    </script>
+</head>
+<body>
+    <h1>♥ Pelikortit - Hertat ♥</h1>
+    <p style="color: white;">Kortit esitetään suurimmasta (Kuningas, 13) pienimpään (Aässä, 1)</p>
+    <button type="button" onclick="esitahertat()">Esitä hertat!</button>
+    <div id="korttikappale">
+        <!-- Tähän tulevat korttikuvat -->
+    </div>
+</body>
+</html>
