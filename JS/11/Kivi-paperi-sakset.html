@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+function pelaa()
+{
+    var tietokone;
+    var pelaaja;
+
+    const kivi = 1;
+    const paperi = 2;
+    const sakset = 3;
+    const lopetus = 0;
+
+    pelaaja = -1;
+
+    while (pelaaja != lopetus)
+    {
+        // kysytään pelaajalta
+        pelaaja = parseInt(prompt("Valintasi 1 (kivi) /2 (paperi) /3 (sakset) / 0 (lopetus)"));
+
+        if (pelaaja == lopetus)
+        {
+            alert("Peli lopetettu");
+            break;
+        }
+
+        // kone arpoo
+        tietokone = Math.floor(Math.random() * 3) + 1;
+
+        // TASAPELI
+        if (pelaaja == tietokone)
+        {
+            alert("Tasapeli!");
+        }
+        // VOITOT
+        else if (
+            (pelaaja == kivi && tietokone == sakset) ||
+            (pelaaja == paperi && tietokone == kivi) ||
+            (pelaaja == sakset && tietokone == paperi)
+        )
+        {
+            alert("Voitit!");
+        }
+        // HÄVIÖT
+        else if (
+            (pelaaja == kivi && tietokone == paperi) ||
+            (pelaaja == paperi && tietokone == sakset) ||
+            (pelaaja == sakset && tietokone == kivi)
+        )
+        {
+            alert("Hävisit!");
+        }
+        else
+        {
+            alert("Virheellinen valinta!");
+        }
+    }
+}
+</script>
+</head>
+
+<body onload="pelaa()">
+</body>
+</html>

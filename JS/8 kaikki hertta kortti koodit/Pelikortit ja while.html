@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pelikortit while - Hertat</title>
+    <link rel="stylesheet" href="Pelikortit ja for.css">
+    
+    <script>
+function esitahertat()
+{
+    var k = 13;
+
+    // Tyhjennetään vanhat kuvat
+    document.getElementById("korttikappale").innerHTML = "";
+
+    while (k > 0)
+    {
+        var kuvanimi = "hertta" + k + ".png";
+        var kuvatagi = "<img src='" + kuvanimi + "'>";
+
+        document.getElementById("korttikappale").innerHTML += kuvatagi;
+
+        k--;
+    }
+
+    document.getElementById("korttikappale").innerHTML += "<br>";
+}
+</script>
+</head>
+
+<body>
+
+<button type="button" onclick="esitahertat()">Esitä hertat</button>
+
+<p id="korttikappale"></p>
+
+</body>
+</html>

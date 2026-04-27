@@ -37,16 +37,14 @@
             annettuLuku = syote;
         }
         
-        // Muutetaan merkkijono numeroksi (esim. "5" -> 5)
         annettuLuku = Number(annettuLuku);
         
-        // Tarkistetaan, onko syöte kelvollinen 
         if (isNaN(annettuLuku)) {
             naytaVirhe("Syötä kelvollinen numero!");
             return;
         }
         
-        // Tarkistetaan, onko luku välillä 1-13
+        // Tarkistetaan, onko luku väliltä 1-13
         if (annettuLuku < 1) {
             naytaVirhe(annettuLuku + " on pienempi kuin 1! Anna luku väliltä 1-13.");
             return;
@@ -73,19 +71,15 @@
     function naytaKorttiKuva(luku) {
         var korttiAlue = document.getElementById("korttiAlue");
         
-        // Muodostetaan kuvan tiedostonimi
         var kuvanNimi = "hertta" + luku + ".png";
         
-        // Luodaan img-elementti
         var img = document.createElement("img");
         img.src = kuvanNimi;
         img.alt = "Hertta " + luku;
         img.title = "Hertta " + luku;
         
-        // Lisätään kuva sivulle
         korttiAlue.appendChild(img);
         
-        // Voi myös lisätä kuvan kuvauksen
         var kuvaus = document.createElement("p");
         kuvaus.innerHTML = "♥ Hertta " + luku + " ♥";
         kuvaus.style.fontWeight = "bold";

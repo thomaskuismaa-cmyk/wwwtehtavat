@@ -39,7 +39,7 @@ body {
     text-decoration: underline;
 }
 
-/* SEARCH */
+/* HAKU */
 .search-bar {
     display: flex;
     justify-content: space-between;
@@ -55,7 +55,7 @@ body {
     border: 1px solid #aaa;
 }
 
-/* ARTICLES */
+/* ATIKKELIT */
 .article {
     display: flex;
     justify-content: space-between;
@@ -107,7 +107,7 @@ body {
     margin: 3px 0;
 }
 
-/* RESPONSIIVINEN */
+/* RESPONSIIVISUUS */
 @media (max-width: 768px) {
     .article {
         flex-direction: column;

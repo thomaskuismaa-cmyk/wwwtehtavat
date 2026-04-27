@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<script>
+function esitahertat(eka, vika)
+{
+    var kuva;
+
+    // tyhjennetään vanha sisältö
+    document.getElementById("kappale").innerHTML = "";
+
+    for (var numero = eka; numero <= vika; numero++)
+    {
+        kuva = "hertta" + numero + ".png";
+
+        document.getElementById("kappale").innerHTML += 
+            kuva + "<br>" +
+            "<img src='" + kuva + "'>" +
+            "<br><br>";
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<input type="button" value="Esitä hertta 10 .. hertta 13" onclick="esitahertat(10, 13)"><br><br>
+
+<p id="kappale"></p>
+
+</body>
+</html>

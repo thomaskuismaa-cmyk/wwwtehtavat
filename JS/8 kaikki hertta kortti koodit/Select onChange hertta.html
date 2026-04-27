@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Herttakortit</title>
+    <link rel="stylesheet" href="Select onChange hertta.css">
+    <script>
+        function valintafunktio(valittu) {
+
+            var tulosDiv = document.getElementById("tulos");
+            var kuvaDiv = document.getElementById("korttiKuva");
+            
+            // Näytetään valittu kortti tekstinä
+            tulosDiv.innerHTML = "<span class='kortti-nimi'>Valitsit: " + valittu + " <span class='hertta-symbol'>♥</span></span>";
+            
+            var numero = valittu.replace("hertta-", "");
+            var kuvanNimi = "hertta" + numero + ".png";
+            
+            var imgTag = "<img src='" + kuvanNimi + "' alt='" + valittu + "' onerror='naytaVirheKuva(this)'>";
+            kuvaDiv.innerHTML = imgTag;
+        }
+        
+        function naytaVirheKuva(imgElement) {
+            imgElement.onerror = null; // Estää loopin
+            imgElement.style.display = "none";
+            
+            var virheDiv = document.createElement("div");
+            virheDiv.className = "virhe-kuva";
+            virheDiv.innerHTML = "Kuvaa ei löydy<br><br>herttaX.png<br><br>Tarvitset kuvan:<br>" + imgElement.src;
+            
+            // Korvaaa kuvan virheviestillä
+            imgElement.parentNode.appendChild(virheDiv);
+        }
+        
+        function naytaOletus() {
+            var select = document.getElementById("herttaSelect");
+            var oletusArvo = select.options[select.selectedIndex].value;
+            valintafunktio(oletusArvo);
+        }
+    </script>
+</head>
+<body onload="naytaOletus()">
+    <div class="container">
+        <h1>♥ Valitse hertta ♥</h1>
+        
+        <select id="herttaSelect" onChange="valintafunktio(this.options[this.selectedIndex].value)">
+            <option value="hertta-1">hertta-1 (Aässä)</option>
+            <option value="hertta-2">hertta-2</option>
+            <option value="hertta-3">hertta-3</option>
+            <option value="hertta-4">hertta-4</option>
+            <option value="hertta-5">hertta-5</option>
+            <option value="hertta-6">hertta-6</option>
+            <option value="hertta-7">hertta-7</option>
+            <option value="hertta-8">hertta-8</option>
+            <option value="hertta-9">hertta-9</option>
+            <option value="hertta-10">hertta-10</option>
+            <option value="hertta-11">hertta-11 (Jätkä)</option>
+            <option value="hertta-12">hertta-12 (Kuningatar)</option>
+            <option value="hertta-13">hertta-13 (Kuningas)</option>
+        </select>
+        
+        <div class="tulos" id="tulos">
+            <!-- Tähän tulee valittu kortti tekstinä -->
+        </div>
+        
+        <div class="kortti-kuva" id="korttiKuva">
+            <!-- Tähän tulee kortin kuva -->
+        </div>
+
+</body>
+</html>
