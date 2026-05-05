@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Korttiharjoitus</title>
+<script>
+function esitaRuvakortti(maa, arvo) {
+    var maaSuomeksi = "";
+    switch(maa) {
+        case "hertta":
+            maaSuomeksi = "hertta";
+            break;
+        case "pata":
+            maaSuomeksi = "pata";
+            break;
+        case "risti":
+            maaSuomeksi = "risti";
+            break;
+        case "ruutu":
+            maaSuomeksi = "ruutu";
+            break;
+        default:
+            maaSuomeksi = maa;
+    }
+    
+    // Tarkistetaan onko kortti kuvakortti (11=jätkä, 12=kuningatar, 13=kuningas)
+    if (arvo >= 11 && arvo <= 13) {
+        var kuvanNimi = maaSuomeksi + arvo + ".png";
+        
+        var imgHtml = '<img src="' + kuvanNimi + '" alt="' + maa + " " + arvo + '">';
+        document.getElementById("kortti").innerHTML = imgHtml;
+    } else {
+        document.getElementById("kortti").innerHTML = "Virhe: Kuvakortit ovat 11 (jätkä), 12 (kuningatar) tai 13 (kuningas)";
+    }
+}
+</script>
+</head>
+<body>
+<!-- Herttajätkä  -->
+<input type="button" value="Show Herttajätkä" onclick="esitaRuvakortti('hertta', 11)">
+
+<!-- Patakuningas -->
+<input type="button" value="Show Patakuningas" onclick="esitaRuvakortti('pata', 13)">
+
+<!-- Ristijätkä -->
+<input type="button" value="Show Ristijätkä" onclick="esitaRuvakortti('risti', 11)">
+
+<!-- Ruutukuningatar -->
+<input type="button" value="Show Ruutukuningatar" onclick="esitaRuvakortti('ruutu', 12)">
+<p id="kortti">
+</p>
+</body>
+</html>

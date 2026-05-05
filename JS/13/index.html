@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funktioharjoitus - Summa, Max ja Taulukon summa</title>
+    <link rel="stylesheet" href="tyyli.css">
+    
+    <script>
+        // Funktio 1: kolmensumma - laskee kolmen luvun summan
+        function kolmensumma(luku1, luku2, luku3) {
+            return luku1 + luku2 + luku3;
+        }
+
+        // Funktio 2: max - palauttaa kahdesta luvusta suuremman
+        function max(luku1, luku2) {
+            if (luku1 > luku2) {
+                return luku1;
+            } else {
+                return luku2;
+            }
+        }
+
+        // Funktio 3: taulusumma - laskee taulukon lukujen summan
+        function taulusumma(taulukko) {
+            var summa = 0;
+            for (var i = 0; i < taulukko.length; i++) {
+                summa += taulukko[i];
+            }
+            return summa;
+        }
+
+        // Apufunktiot testausta varten
+        function testaaKolmensumma() {
+            var l1 = 5, l2 = 10, l3 = 15;
+            var tulos = kolmensumma(l1, l2, l3);
+            document.getElementById("tulos1").innerHTML = 
+                "kolmensumma(" + l1 + ", " + l2 + ", " + l3 + ") = " + tulos;
+        }
+
+        function testaaMax() {
+            var l1 = 25, l2 = 42;
+            var tulos = max(l1, l2);
+            document.getElementById("tulos2").innerHTML = 
+                "max(" + l1 + ", " + l2 + ") = " + tulos;
+        }
+
+        function testaaTaulusumma() {
+            var taulu = [1, 2, 3, 4, 5];
+            var tulos = taulusumma(taulu);
+            document.getElementById("tulos3").innerHTML = 
+                "taulusumma([" + taulu.join(", ") + "]) = " + tulos;
+        }
+
+        // Testaa eri arvoilla
+        function testaaKolmensumma2() {
+            var l1 = parseInt(document.getElementById("luku1").value) || 0;
+            var l2 = parseInt(document.getElementById("luku2").value) || 0;
+            var l3 = parseInt(document.getElementById("luku3").value) || 0;
+            var tulos = kolmensumma(l1, l2, l3);
+            document.getElementById("tulos1b").innerHTML = 
+                "kolmensumma(" + l1 + ", " + l2 + ", " + l3 + ") = " + tulos;
+        }
+
+        function testaaMax2() {
+            var l1 = parseInt(document.getElementById("max1").value) || 0;
+            var l2 = parseInt(document.getElementById("max2").value) || 0;
+            var tulos = max(l1, l2);
+            document.getElementById("tulos2b").innerHTML = 
+                "max(" + l1 + ", " + l2 + ") = " + tulos;
+        }
+
+        function testaaTaulusumma2() {
+            var syote = document.getElementById("taulukko").value;
+            var taulu = syote.split(",").map(function(item) {
+                return parseInt(item.trim()) || 0;
+            });
+            var tulos = taulusumma(taulu);
+            document.getElementById("tulos3b").innerHTML = 
+                "taulusumma([" + taulu.join(", ") + "]) = " + tulos;
+        }
+    </script>
+</head>
+<body>
+    <h1>📊 Funktioharjoitus</h1>
+    
+    <div class="container">
+        <h2>1️⃣ kolmensumma(luku1, luku2, luku3)</h2>
+        <p><strong>Kuvaus:</strong> Funktio saa kolme lukuparametria ja palauttaa niiden summan.</p>
+        <div class="code-block">
+            // Esimerkki:<br>
+            kolmensumma(5, 10, 15) → 30<br>
+            kolmensumma(2, 4, 6) → 12
+        </div>
+        <div class="button-group">
+            <button onclick="testaaKolmensumma()">Testaa esimerkkiä</button>
+        </div>
+        <div id="tulos1" class="result"></div>
+        
+        <div class="button-group">
+            <h3>Omilla arvoilla:</h3>
+            <input type="number" id="luku1" placeholder="Luku 1" value="7">
+            <input type="number" id="luku2" placeholder="Luku 2" value="8">
+            <input type="number" id="luku3" placeholder="Luku 3" value="9">
+            <button onclick="testaaKolmensumma2()">Laske summa</button>
+        </div>
+        <div id="tulos1b" class="result"></div>
+    </div>
+
+    <div class="container">
+        <h2>2️⃣ max(luku1, luku2)</h2>
+        <p><strong>Kuvaus:</strong> Funktio saa kaksi lukuparametria ja palauttaa niistä suuremman.</p>
+        <div class="code-block">
+            // Esimerkki:<br>
+            max(25, 42) → 42<br>
+            max(100, 50) → 100
+        </div>
+        <div class="button-group">
+            <button onclick="testaaMax()">Testaa esimerkkiä</button>
+        </div>
+        <div id="tulos2" class="result"></div>
+        
+        <div class="button-group">
+            <h3>Omilla arvoilla:</h3>
+            <input type="number" id="max1" placeholder="Luku 1" value="33">
+            <input type="number" id="max2" placeholder="Luku 2" value="67">
+            <button onclick="testaaMax2()">Vertaa lukuja</button>
+        </div>
+        <div id="tulos2b" class="result"></div>
+    </div>
+
+    <div class="container">
+        <h2>3️⃣ taulusumma(taulukko)</h2>
+        <p><strong>Kuvaus:</strong> Funktio saa parametrina lukuja sisältävän taulukon ja palauttaa taulukon lukujen summan.</p>
+        <div class="code-block">
+            // Esimerkki:<br>
+            taulusumma([1, 2, 3, 4, 5]) → 15<br>
+            taulusumma([10, 20, 30]) → 60
+        </div>
+        <div class="button-group">
+            <button onclick="testaaTaulusumma()">Testaa esimerkkiä</button>
+        </div>
+        <div id="tulos3" class="result"></div>
+        
+        <div class="button-group">
+            <h3>Omilla arvoilla:</h3>
+            <input type="text" id="taulukko" placeholder="Syötä luvut pilkulla erotettuna, esim. 1,2,3,4,5" value="1,2,3,4,5" size="40">
+            <button onclick="testaaTaulusumma2()">Laske summa</button>
+        </div>
+        <div id="tulos3b" class="result"></div>
+    </div>
+
+    <hr>
+
+    </div>
+</body>
+</html>
