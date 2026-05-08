@@ -1,0 +1,152 @@
+<!-- Osa koodista tehty tekoälyn avulla -->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pong</title>
+<link rel="stylesheet" href="pong.css">
+
+</head>
+<body>
+
+<h1>🏓 Pong</h1>
+<p>Vasen maila = hiiri | Oikea maila = nuolinäppäimet</p>
+
+<canvas id="game" width="800" height="500"></canvas>
+
+<script>
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+
+// Mailat
+const paddleWidth = 12;
+const paddleHeight = 100;
+
+let leftPaddleY = 200;
+let rightPaddleY = 200;
+
+// Pallo
+let ballX = canvas.width / 2;
+let ballY = canvas.height / 2;
+let ballRadius = 10;
+
+let ballSpeedX = 5;
+let ballSpeedY = 5;
+
+// Pisteet
+let leftScore = 0;
+let rightScore = 0;
+
+// Oikean mailan ohjaus
+const keys = {};
+
+document.addEventListener('keydown', (e) => {
+    keys[e.key] = true;
+});
+
+document.addEventListener('keyup', (e) => {
+    keys[e.key] = false;
+});
+
+// Vasen maila hiirellä
+canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    leftPaddleY = e.clientY - rect.top - paddleHeight / 2;
+});
+
+function moveRightPaddle() {
+    if(keys['ArrowUp'] && rightPaddleY > 0) {
+        rightPaddleY -= 7;
+    }
+
+    if(keys['ArrowDown'] && rightPaddleY < canvas.height - paddleHeight) {
+        rightPaddleY += 7;
+    }
+}
+
+function update() {
+    moveRightPaddle();
+
+    ballX += ballSpeedX;
+    ballY += ballSpeedY;
+
+    // Ylä- ja alareuna
+    if(ballY - ballRadius <= 0 || ballY + ballRadius >= canvas.height) {
+        ballSpeedY *= -1;
+    }
+
+    // Vasen maila
+    if(
+        ballX - ballRadius <= 20 &&
+        ballY > leftPaddleY &&
+        ballY < leftPaddleY + paddleHeight
+    ) {
+        ballSpeedX *= -1;
+    }
+
+    // Oikea maila
+    if(
+        ballX + ballRadius >= canvas.width - 20 &&
+        ballY > rightPaddleY &&
+        ballY < rightPaddleY + paddleHeight
+    ) {
+        ballSpeedX *= -1;
+    }
+
+    // Pisteet
+    if(ballX < 0) {
+        rightScore++;
+        resetBall
+    }
+
+    if(ballX > canvas.width) {
+        leftScore++;
+        resetBall();
+    }
+}
+
+function resetBall() {
+    ballX = canvas.width / 2;
+    ballY = canvas.height / 2;
+
+    ballSpeedX *= -1;
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = 'white';
+
+    // Mailat
+    ctx.fillRect(10, leftPaddleY, paddleWidth, paddleHeight);
+    ctx.fillRect(canvas.width - 22, rightPaddleY, paddleWidth, paddleHeight);
+
+    // Pallo
+    ctx.beginPath();
+    ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Keskiviiva
+    for(let i = 0; i < canvas.height; i += 30) {
+        ctx.fillRect(canvas.width / 2 - 2, i, 4, 20);
+    }
+
+    // Pisteet
+    ctx.font = '40px Arial';
+    ctx.fillText(leftScore, canvas.width / 2 - 60, 50);
+    ctx.fillText(rightScore, canvas.width / 2 + 40, 50);
+}
+
+function gameLoop() {
+    update();
+    draw();
+    requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!-- Osa koodista tehty tekoälyn avulla -->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kivi Paperi Sakset</title>
+<link rel="stylesheet" href="kivi-paperi-sakset.css">
+
+</head>
+<body>
+
+<div class="container">
+    <h1>🪨📄✂️ Kivi Paperi Sakset</h1>
+
+    <div class="buttons">
+        <button onclick="play('kivi')">🪨</button>
+        <button onclick="play('paperi')">📄</button>
+        <button onclick="play('sakset')">✂️</button>
+    </div>
+
+    <div class="score">
+        Pelaaja: <span id="playerScore">0</span>
+        | Tietokone: <span id="computerScore">0</span>
+    </div>
+
+    <div id="result"></div>
+
+    <button class="restart" onclick="restartGame()">Aloita alusta</button>
+</div>
+
+<script>
+let playerScore = 0;
+let computerScore = 0;
+let gameOver = false;
+
+function play(player) {
+    if(gameOver) return;
+
+    const choices = ['kivi', 'paperi', 'sakset'];
+    const computer = choices[Math.floor(Math.random() * 3)];
+
+    let result = '';
+
+    if(player === computer) {
+        result = 'Tasapeli!';
+    }
+    else if(
+        (player === 'kivi' && computer === 'sakset') ||
+        (player === 'paperi' && computer === 'kivi') ||
+        (player === 'sakset' && computer === 'paperi')
+    ) {
+        result = 'Voitit kierroksen!';
+        playerScore++;
+    }
+    else {
+        result = 'Tietokone voitti kierroksen!';
+        computerScore++;
+    }
+
+    document.getElementById('playerScore').textContent = playerScore;
+    document.getElementById('computerScore').textContent = computerScore;
+
+    document.getElementById('result').innerHTML = `
+        Sinä valitsit: <b>${player}</b><br>
+        Tietokone valitsi: <b>${computer}</b><br><br>
+        ${result}
+    `;
+
+    if(playerScore === 3) {
+        document.getElementById('result').innerHTML += '<br><br>🏆 SINÄ VOITIT PELIN!';
+        gameOver = true;
+    }
+
+    if(computerScore === 3) {
+        document.getElementById('result').innerHTML += '<br><br>💻 TIETOKONE VOITTI PELIN!';
+        gameOver = true;
+    }
+}
+
+function restartGame() {
+    playerScore = 0;
+    computerScore = 0;
+    gameOver = false;
+
+    document.getElementById('playerScore').textContent = 0;
+    document.getElementById('computerScore').textContent = 0;
+    document.getElementById('result').innerHTML = '';
+}
+</script>
+
+</body>
+</html>
